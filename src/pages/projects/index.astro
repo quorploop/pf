@@ -1,0 +1,12 @@
+---
+import { getCollection } from "astro:content";
+import Title from "../../components/Title.astro";
+import BasicLayout from "../../layouts/BasicLayout.astro";
+import List from "../../components/List.astro";
+
+const allProjects = await getCollection('project');
+---
+<BasicLayout>
+    <Title title="Projects"/>
+    <List items={allProjects} />
+</BasicLayout>
