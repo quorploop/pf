@@ -14,7 +14,7 @@ let socials = [
 const allProjects = await getCollection('project');
 ---
 
-<BasicLayout title="Home">
+<BasicLayout title="Home" marquee>
 	<Title title="Linus Silberstein" description="Dev from Germany"/>
 	<Socials socials={socials}/>
 	<List title="Projects" items={allProjects}/>
