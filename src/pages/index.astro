@@ -12,10 +12,9 @@ let socials = [
 ]
 
 const allProjects = await getCollection('project');
-const marqueetext = allProjects.map((project) => (project.data.title)).join(' +++ ')
 ---
 
-<BasicLayout title="Home" marqueetext={marqueetext}>
+<BasicLayout title="Home">
 	<Title title="Linus Silberstein" description="Dev from Germany"/>
 	<Socials socials={socials}/>
 	<List title="Projects" items={allProjects}/>

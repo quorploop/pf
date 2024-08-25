@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+
+const allProjects = await getCollection('project');
+const marqueetext = allProjects.map((project) => (project.data.title)).join(' +++ ')
+---
+
+<section class="section bg-purple-600 dark:bg-purple-900 text-white font-mono">
+    <a href="/projects" class="marquee hover:underline">
+       {marqueetext} 
+    </a>
+</section>
+
+<style>
+    @keyframes marquee {
+        0% {
+            margin-left: 100%;
+            transform: translateX(0%);
+        }
+        100% {
+            margin-left: 0;
+            transform: translateX(-100%);
+        }
+    }
+
+    .section {
+        overflow: hidden;
+
+        .marquee {
+            animation: marquee 30s linear infinite;
+            display: inline-block;
+            white-space: nowrap;
+
+            &:hover {
+                animation-play-state: paused;
+            }
+        }
+    }
+</style>
