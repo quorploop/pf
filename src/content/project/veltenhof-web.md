@@ -1,7 +1,7 @@
 ---
 title: Veltenhof Webpresence
 description: Webpresence for a district of brunswick
-year: 2024
+date: 2024-09-01
 link: 'veltenhof.de'
 tags: ['web']
 ---

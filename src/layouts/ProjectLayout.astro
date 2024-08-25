@@ -2,14 +2,19 @@
 import Title from "../components/Title.astro";
 import BasicLayout from "./BasicLayout.astro";
 
-const {frontmatter} = Astro.props
+const { frontmatter } = Astro.props;
 ---
 
-<BasicLayout>
-    <Title title={frontmatter.title} description=`${frontmatter.description} | ${frontmatter.year}`/>
-    <article class="mt-8 prose prose-h2:font-serif prose-h2:text-2xl
-        prose-a:text-blue-600 prose-a:visited:text-purple-800
-        prose-img:rounded-xl">
-        <slot/>
+<BasicLayout title=`Project | ${frontmatter.title}`>
+    <Title
+        title={frontmatter.title}
+        description=`${frontmatter.description} | ${frontmatter.date.toString().slice(0,10)}`
+    />
+    <article
+        class="mt-8 prose prose-h2:font-serif prose-h2:text-2xl dark:prose-p:text-white dark:prose-h2:text-white
+        prose-a:text-blue-500 prose-a:visited:text-purple-800
+        prose-img:rounded-xl"
+    >
+        <slot />
     </article>
 </BasicLayout>
