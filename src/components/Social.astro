@@ -1,12 +1,8 @@
 ---
-const {iconsrc, title, link} = Astro.props
+const { iconsrc, title, link, mono } = Astro.props;
 ---
 
-<a href={link} class="inline-flex gap-1 items-center">
-{title ?
-    <img class="h-8 fill-black"src={iconsrc} alt={title}/>
-    <p>{title}</p>
-:
-    <img class="h-8 fill-black" src={iconsrc} alt={title}/>
-}
+<a href={link} class="inline-flex gap-1 align-middle items-center">
+    {iconsrc ? <img class="h-8 fill-black" src={iconsrc} alt={title} /> : null}
+    {title ? <p class={!mono ? "font-mono" : ""}>{!mono ? `${link}`: link}</p> : null}
 </a>
