@@ -1,0 +1,21 @@
+---
+const { title, items } = Astro.props;
+---
+
+<section class="items-start mt-8">
+    <h2 class="text-2xl font-serif">{title}</h2>
+    <ul class="list-disc list-inside">
+        {
+            items.map((item) => (
+                <li>
+                    <a
+                        href={`/projects/${item.slug}`}
+                        class="hover:underline visited:text-purple-800"
+                    >
+                        {item.data.title}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</section>

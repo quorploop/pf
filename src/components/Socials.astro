@@ -1,0 +1,21 @@
+---
+import Social from "./Social.astro";
+
+const { socials } = Astro.props;
+---
+
+<section class="items-start mt-8">
+    <ul class="flex gap-4 flex-wrap">
+        {
+            socials.map((item) => (
+                <li>
+                    <Social
+                        iconsrc={item.iconsrc}
+                        title={item.title}
+                        link={item.link}
+                    />
+                </li>
+            ))
+        }
+    </ul>
+</section>

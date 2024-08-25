@@ -1,9 +1,21 @@
 ---
 import BasicLayout from "../layouts/BasicLayout.astro";
+import Title from "../components/Title.astro";
+import Socials from "../components/Socials.astro";
+import List from "../components/List.astro";
+import { getCollection } from "astro:content";
+
+let socials = [
+	{iconsrc: 'github-mark.svg', link:'https://github.com/lsilberstein'},
+	{iconsrc: 'icons8-linkedin.svg', title:'LinkedIn', link:'https://www.linkedin.com/in/linussilberstein'}
+]
+
+const allProjects = await getCollection('project');
+const marqueetext = allProjects.map((project) => (project.data.title)).join(' +++ ')
 ---
 
-<BasicLayout title="Home">
-	<h1 class="font-serif text-6xl">Linus Silberstein</h1>
-	<p class="font-sans">Under Construction</p>
-	<code class="font-mono">Coming soon</code>
+<BasicLayout title="Home" marqueetext={marqueetext}>
+	<Title title="Linus Silberstein" description=""/>
+	<Socials socials={socials}/>
+	<List title="Projects" items={allProjects}/>
 </BasicLayout>

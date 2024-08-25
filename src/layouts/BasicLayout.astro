@@ -1,14 +1,19 @@
 ---
-import Head from "../components/Head.astro"
+import Head from "../components/Head.astro";
 
-const {title} = Astro.props
+const { title, marqueetext } = Astro.props;
 ---
 
 <html lang="en">
-	<Head title={title}/>
+	<Head title={title} />
 	<body>
-		<div class="">
-			<slot />
+		{marqueetext && <marquee class="bg-purple-600 text-white font-mono">
+			{marqueetext}
+		</marquee>}
+		<div class="flex items-center w-full flex-col gap-2 md:p-8 min-h-screen">
+			<div class="w-full max-w-xl">
+				<slot />
+			</div>
 		</div>
 	</body>
 </html>

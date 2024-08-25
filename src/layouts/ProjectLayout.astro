@@ -1,0 +1,13 @@
+---
+import Title from "../components/Title.astro";
+import BasicLayout from "./BasicLayout.astro";
+
+const {frontmatter} = Astro.props
+---
+
+<BasicLayout>
+    <Title title={frontmatter.title} description=`${frontmatter.description} | ${frontmatter.year}`/>
+    <section class="mt-8">
+        <slot/>
+    </section>
+</BasicLayout>
