@@ -12,10 +12,13 @@ let socials = [
 ]
 
 const allProjects = await getCollection('project');
+const allJobs = await getCollection('job');
 ---
 
 <BasicLayout title="Home" marquee>
 	<Title title="Linus Silberstein" description="Dev from Germany"/>
 	<Socials socials={socials}/>
-	<List title="Projects" items={allProjects}/>
+	<List title="Projects" items={allProjects} type="projects"/>
+	<!-- <List title="Research" items={[]}/>-->
+	<List title="Jobs" items={allJobs} type="jobs"/>
 </BasicLayout>

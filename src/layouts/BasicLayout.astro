@@ -8,6 +8,7 @@ const { title, marquee } = Astro.props;
 let links = [
 	{ title: "Home", url: "/" },
 	{ title: "Projects", url: "/projects" },
+	{ title: "Jobs", url: "/jobs"}
 ];
 ---
 
@@ -22,7 +23,7 @@ let links = [
 				<slot />
 				<div class="mt-8">
 					<Footer links={links} />
-				</div>
+				</div> 
 			</div>
 		</div>
 	</body>

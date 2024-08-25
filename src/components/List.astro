@@ -1,5 +1,5 @@
 ---
-const { title, items } = Astro.props;
+const { title, items, type } = Astro.props;
 ---
 
 <section class="items-start mt-8">
@@ -9,7 +9,7 @@ const { title, items } = Astro.props;
             items.map((item) => (
                 <li>
                     <a
-                        href={`/projects/${item.slug}`}
+                        href={`/${type}/${item.slug}`}
                         class="hover:underline text-blue-500 visited:text-purple-800 visited:dark:text-purple-400"
                     >
                         {item.data.title}
