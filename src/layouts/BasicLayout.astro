@@ -8,7 +8,7 @@ const { title, marquee } = Astro.props;
 let links = [
 	{ title: "Home", url: "/" },
 	{ title: "Projects", url: "/projects" },
-	{ title: "Jobs", url: "/jobs"}
+	{ title: "Jobs", url: "/jobs" },
 ];
 ---
 
@@ -21,9 +21,7 @@ let links = [
 		>
 			<div class="w-full max-w-xl">
 				<slot />
-				<div class="mt-8">
-					<Footer links={links} />
-				</div> 
+				<Footer links={links} />
 			</div>
 		</div>
 	</body>

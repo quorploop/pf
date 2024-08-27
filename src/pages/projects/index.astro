@@ -6,7 +6,7 @@ import List from "../../components/List.astro";
 
 const allProjects = await getCollection('project');
 ---
-<BasicLayout>
+<BasicLayout title="Projects">
     <Title title="Projects"/>
     <List items={allProjects} type="projects"/>
 </BasicLayout>
