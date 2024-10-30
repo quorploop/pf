@@ -10,12 +10,26 @@ let links = [
 	{ title: "Projects", url: "/projects" },
 	{ title: "Jobs", url: "/jobs" },
 ];
+
+let colours = [
+	{ light: "bg-purple-600", dark: "bg-purple-900"},
+	{ light: "bg-green-600", dark: "bg-green-900"},
+	{ light: "bg-blue-600", dark: "bg-blue-900"},
+	{ light: "bg-red-600", dark: "bg-red-900"},
+	// Add more here
+];
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+const theme = colours[getRandomInt(colours.length)];
 ---
 
 <html lang="en-US">
 	<Head title={title} />
 	<body class="bg-white dark:bg-neutral-900">
-		{marquee ? <Marquee /> : null}
+		{marquee ? <Marquee theme={theme}/> : null}
 		<div
 			class="flex items-center w-full flex-col gap-2 p-4 md:p-8 text-black dark:text-white"
 		>
