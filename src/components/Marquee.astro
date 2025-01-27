@@ -4,11 +4,14 @@ import { getCollection } from "astro:content";
 const { theme } = Astro.props;
 
 const allProjects = await getCollection('project');
-const marqueetext = allProjects.map((project) => (project.data.title)).join(' +++ ')
+const projectstring = allProjects.map((project) => (project.data.title)).join(' +++ ')
+const allPosts = await getCollection('post');
+const poststring = allPosts.map((post) => (post.data.title)).join(' +++ ')
+const marqueetext = projectstring + ' +++ ' + poststring
 ---
 
 <section class=`section ${theme.light} dark:${theme.dark} text-white font-mono`>
-    <a href="/projects" class="marquee hover:underline">
+    <a href="/" class="marquee hover:underline">
        {marqueetext} 
     </a>
 </section>
