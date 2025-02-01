@@ -6,7 +6,7 @@ import BasicLayout from "./BasicLayout.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<BasicLayout title=`Project | ${frontmatter.title}` displayBreadCrumbs>
+<BasicLayout title=`${frontmatter.title}`>
     <Title
         title={frontmatter.title}
         description=`${frontmatter.description} | ${frontmatter.date.toDateString()}`

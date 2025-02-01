@@ -4,9 +4,14 @@ import Title from "../../components/Title.astro";
 
 export async function getStaticPaths() {
     const allPosts: { frontmatter: { tags: string[] } }[] = Object.values(
-        import.meta.glob("../../content/*/*.md", { eager: true }) as Record<string, { frontmatter: { tags: string[] } }>,
+        import.meta.glob("../../content/*/*.md", { eager: true }) as Record<
+            string,
+            { frontmatter: { tags: string[] } }
+        >,
     );
-    const allTags = [...new Set(allPosts.flatMap((post) => post.frontmatter?.tags))];
+    const allTags = [
+        ...new Set(allPosts.flatMap((post) => post.frontmatter?.tags)),
+    ];
     return allTags.map((tag) => ({
         params: { tag },
         props: { posts: allPosts },
@@ -25,21 +30,23 @@ const filteredPosts = posts
     }));
 ---
 
-<BasicLayout>
+<BasicLayout title=`Tags | ${tag}`>
     <Title title=`${tag.toUpperCase()}` description="Posts with Tag" />
 
-    <ul class="list-disc list-inside">
-        {
-            filteredPosts.map((post) => (
-                <li>
-                    <a
-                        href={`/${post.type}s/${post.slug}`}
-                        class="hover:underline text-accent vistited:text-secondary"
-                    >
-                        {post.title}
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
+    <section class="items-start mt-8">
+        <ul class="list-disc list-inside">
+            {
+                filteredPosts.map((post) => (
+                    <li>
+                        <a
+                            href={`/${post.type}s/${post.slug}`}
+                            class="hover:underline text-accent vistited:text-secondary"
+                        >
+                            {post.title}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
 </BasicLayout>

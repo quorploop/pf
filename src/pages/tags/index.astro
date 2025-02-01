@@ -1,0 +1,35 @@
+---
+import Title from "../../components/Title.astro";
+import BasicLayout from "../../layouts/BasicLayout.astro";
+
+const allPosts: { frontmatter: { tags: string[] } }[] = Object.values(
+    import.meta.glob("../../content/*/*.md", { eager: true }) as Record<
+        string,
+        { frontmatter: { tags: string[] } }
+    >,
+);
+const allTags = [
+    ...new Set(allPosts.flatMap((post) => post.frontmatter?.tags)),
+];
+console.log(allTags);
+---
+
+<BasicLayout title="Tags">
+    <Title title="Tags" />
+    <section class="items-start mt-8">
+        <div class="flex gap-2 py-1 font-mono text-s">
+            {
+                allTags.map((badge) => {
+                    return (
+                        <a
+                            href={`/tags/${badge}`}
+                            class="hover:underline hover:scale-110 duration-100 ease-in-out px-2 text-white bg-primary rounded-full"
+                        >
+                            {badge}
+                        </a>
+                    );
+                })
+            }
+        </div>
+    </section>
+</BasicLayout>
