@@ -37,9 +37,18 @@ const merged = list.flat(1)
     });
 ---
 
-<div class=`relative flex overflow-x-hidden bg-primary dark: text-white font-mono`>
+<div class=`relative flex overflow-x-hidden bg-primary text-white font-mono`>
 
     <section class="gap-4 animate-marquee whitespace-nowrap">
+        {
+            merged.length > 0 && merged.map((item) => (
+                <a href={`/${item.slug}`} class="hover:underline">{item.title}</a>
+                <p class="inline"> +++ </p>
+            ))
+        }
+    </section>
+
+    <section class="gap-4 animate-marquee2 whitespace-nowrap">
         {
             merged.length > 0 && merged.map((item) => (
                 <a href={`/${item.slug}`} class="hover:underline">{item.title}</a>
