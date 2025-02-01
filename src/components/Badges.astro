@@ -4,6 +4,8 @@ const { badges } = Astro.props;
 
 <div class="flex gap-2 py-1 font-mono text-s">
     {badges.map((badge) => {
-        return <span class="px-2 text-white bg-primary rounded-full">{badge}</span>
+        return <a 
+            href={`/tags/${badge}`}
+        class="hover:underline hover:scale-110 duration-100 ease-in-out px-2 text-white bg-primary rounded-full">{badge}</a>
     })}
 </div>

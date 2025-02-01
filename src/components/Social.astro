@@ -3,5 +3,5 @@ const { title, link } = Astro.props;
 ---
 
 <a href={link} class="inline-flex gap-1 align-middle items-center">
-    <p class="font-mono text-wrap">{title? title: link}</p>
+    <p class="font-mono text-wrap hover:underline">{title? title: link}</p>
 </a>

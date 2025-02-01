@@ -2,7 +2,7 @@
 title: On 'Für einen Umweltschutz der 99%'
 description: Eine Rezension
 date: 2025-01-27
-tags: ['blog', 'climate', 'class']
+tags: ['climate', 'class']
 ---
 
 Oft wird Klima- und Umweltschützer:innen vorgeworfen, dass diese
