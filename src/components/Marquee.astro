@@ -1,44 +1,51 @@
 ---
 import { getCollection } from "astro:content";
 
-const { theme } = Astro.props;
-
 const allProjects = await getCollection('project');
-const projectstring = allProjects.map((project) => (project.data.title)).join(' +++ ')
 const allPosts = await getCollection('post');
-const poststring = allPosts.map((post) => (post.data.title)).join(' +++ ')
-const marqueetext = projectstring + ' +++ ' + poststring
+
+// Map all items from both promises into a single list
+var list = []; 
+list.push(allProjects.map((project) => {
+    return {
+        slug: `projects/${project.slug}`,
+        title: project.data.title
+    }
+}));
+list.push(allPosts.map((post) => {
+    return {
+        slug: `posts/${post.slug}`,
+        title: post.data.title
+    }
+}));
+
+// Randomize Order of the list
+const merged = list.flat(1)
+    .map((item) => {
+        return {
+            slug: item.slug,
+            title: item.title,
+            sort: Math.random()
+        }
+    })
+    .sort((a,b) => a.sort - b.sort)
+    .map((item) => {
+        return {
+            slug: item.slug,
+            title: item.title
+        }
+    });
+console.log(merged)
 ---
 
-<section class=`section ${theme.light} dark:${theme.dark} text-white font-mono`>
-    <a href="/" class="marquee hover:underline">
-       {marqueetext} 
-    </a>
-</section>
+<div class=`relative flex overflow-x-hidden bg-primary dark: text-white font-mono`>
 
-<style>
-    @keyframes marquee {
-        0% {
-            margin-left: 100%;
-            transform: translateX(0%);
+    <section class="gap-4 animate-marquee whitespace-nowrap">
+        {
+            merged.length > 0 && merged.map((item) => (
+                <a href={`/${item.slug}`} class="hover:underline">{item.title}</a>
+                <p class="inline"> +++ </p>
+            ))
         }
-        100% {
-            margin-left: 0;
-            transform: translateX(-100%);
-        }
-    }
-
-    .section {
-        overflow: hidden;
-
-        .marquee {
-            animation: marquee 30s linear infinite;
-            display: inline-block;
-            white-space: nowrap;
-
-            &:hover {
-                animation-play-state: paused;
-            }
-        }
-    }
-</style>
+    </section>
+</div>

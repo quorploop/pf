@@ -6,9 +6,4 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: 'https://linussilberstein.de',
   integrations: [tailwind()],
-  vite: {
-      ssr: {
-          noExternal: ['webcoreui']
-      }
-  }
 });

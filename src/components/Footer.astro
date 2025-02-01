@@ -6,7 +6,7 @@ const {links} = Astro.props;
 <footer class="mt-8">
     <ul>
         {links.map((link) => <li>
-            <a href={link.url}>{link.title}</a>
+            <a href={link.url} class="hover:underline text-grey dark:text-lightgrey">{link.title}</a>
         </li>)}
     </ul>
 </footer>

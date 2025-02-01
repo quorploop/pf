@@ -1,9 +1,9 @@
 ---
-import { Badge } from 'webcoreui/astro'
-
 const { badges } = Astro.props;
 ---
 
-{badges.map((badge) => {
-    return <Badge theme="outline" small={true} rounded={true}>{badge}</Badge>
-})}
+<div class="flex gap-2 py-1 font-mono text-s">
+    {badges.map((badge) => {
+        return <span class="px-2 text-white bg-primary rounded-full">{badge}</span>
+    })}
+</div>
