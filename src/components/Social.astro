@@ -1,7 +1,13 @@
 ---
-const { title, link } = Astro.props;
+const { title, link, notclickable } = Astro.props;
 ---
 
-<a href={link} class="inline-flex gap-1 align-middle items-center">
-    <p class="font-mono text-wrap hover:underline">{title? title: link}</p>
-</a>
+{!notclickable? 
+    <a href={link} class="inline-flex gap-1 align-middle items-center">
+        <p class="font-mono text-wrap hover:underline">{title? title: link}</p>
+    </a>
+: 
+    <span class="inline-flex gap-1 align-middle items-center">
+        <p class="font-mono text-wrap hover:underline">{title? title: "None"}</p>}
+    </span>
+
