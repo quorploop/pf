@@ -10,14 +10,13 @@ const allPosts: { frontmatter: { tags: string[] } }[] = Object.values(
 );
 const allTags = [
     ...new Set(allPosts.flatMap((post) => post.frontmatter?.tags)),
-];
-console.log(allTags);
+].sort();
 ---
 
 <BasicLayout title="Tags">
     <Title title="Tags" />
     <section class="items-start mt-8">
-        <div class="flex gap-2 py-1 font-mono text-s">
+        <div class="flex gap-2 py-1 font-mono text-s flex-wrap">
             {
                 allTags.map((badge) => {
                     return (
