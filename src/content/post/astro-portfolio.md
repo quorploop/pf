@@ -2,7 +2,7 @@
 title: Astro Portfolio
 description: How I created and now host my own public Website for next to nothing
 date: 2025-02-20
-tags: ['web', 'ci/cd', 'astro', 'static']
+tags: ['web', 'cicd', 'astro', 'static']
 ---
 
 Hosting your own portfolio often seems like the first step in creating your own
