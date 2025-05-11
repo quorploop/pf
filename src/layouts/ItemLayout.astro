@@ -9,13 +9,11 @@ const { frontmatter } = Astro.props;
 <BasicLayout title=`${frontmatter.title}`>
     <Title
         title={frontmatter.title}
-        description=`${frontmatter.description} | ${frontmatter.date.toDateString()}`
     />
     <Badges badges={frontmatter.tags} />
     <article
-        class="mt-8 prose prose-h2:font-serif prose-h2:text-2xl prose-headings:text-black dark:prose-headings:text-white text-black dark:text-white
-        prose-a:text-accent prose-a:visited:text-secondary prose-blockquote:text-grey dark:prose-blockquote:text-lightgrey
-        prose-img:grayscale"
+        class="mt-8 prose prose-h2:font-serif prose-h2:text-2xl prose-headings:text-dark dark:prose-headings:text-white text-dark dark:text-white
+        prose-a:text-dark dark:prose-a:text-white"
     >
         <slot />
     </article>

@@ -6,21 +6,16 @@ import List from "../components/List.astro";
 import { getCollection } from "astro:content";
 
 let socials = [
-	{title: 'Github', link:'https://github.com/lsilberstein'},
-	{title: 'LinkedIn', link:'https://www.linkedin.com/in/linussilberstein'},
-	{title: 'OpenPGP', link: 'https://keys.openpgp.org/search?q=mail@linussilberstein.de'},
-	{title: 'goodreads', link:'https://www.goodreads.com/user/show/149550749-linus-silberstein'}
+	{title: 'Mail', link: 'mailto:mail@linussilberstein.de'},
+	{title: 'Posts', link: '/posts'},
+	{title: 'Tags', link: '/tags'},
 ]
 
-const allProjects = await getCollection('project');
-const allJobs = await getCollection('job');
 const allBlogEntries = await getCollection('post');
 ---
 
 <BasicLayout title="Home" marquee>
-	<Title title="Linus Silberstein" description="Dev from Germany"/>
+	<Title title="Linus Silberstein" />
+	<List items={allBlogEntries} type="posts"/>
 	<Socials socials={socials}/>
-	<List title="Projects" items={allProjects} type="projects"/>
-	<List title="Jobs" items={allJobs} type="jobs"/>
-	<List title="Post" items={allBlogEntries} type="posts"/>
 </BasicLayout>
