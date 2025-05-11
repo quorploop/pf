@@ -1,12 +1,9 @@
 ---
-const {title, description} = Astro.props
+const {title} = Astro.props
 ---
 
 <header class="flex flex-col gap-4 items-start mt-0 border-b border-gray-100">
     <h1 class="font-serif text-6xl">
         {title}
     </h1>
-    <h2 class="text-sans text-xl text-grey dark:text-lightgrey">
-        {description}
-    </h2>
 </header>

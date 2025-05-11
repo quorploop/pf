@@ -1,29 +1,18 @@
 ---
 import Footer from "../components/Footer.astro";
 import Head from "../components/Head.astro";
-import Marquee from "../components/Marquee.astro";
 
-const { title, marquee } = Astro.props;
-
-let links = [
-	{ title: "Home", url: "/" },
-	{ title: "Projects", url: "/projects" },
-	{ title: "Jobs", url: "/jobs" },
-	{ title: "Posts", url: "/posts" },
-	{ title: "Tags", url: "/tags" }
-];
+const { title } = Astro.props;
 ---
 
 <html lang="en-US">
 	<Head title={title} />
 	<body class="bg-white dark:bg-dark">
-		{marquee ? <Marquee/> : null}
 		<div
-			class="flex items-center w-full flex-col gap-2 p-4 md:p-8 text-black dark:text-white"
+			class="flex items-center w-full flex-col gap-2 p-4 md:p-8 text-dark dark:text-white"
 		>
 			<div class="w-full max-w-xl">
 				<slot />
-				<Footer links={links} />
 			</div>
 		</div>
 	</body>
