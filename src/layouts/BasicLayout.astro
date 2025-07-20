@@ -1,8 +1,9 @@
 ---
-import Footer from "../components/Footer.astro";
 import Head from "../components/Head.astro";
 
 const { title } = Astro.props;
+
+const year = new Date().getFullYear()
 ---
 
 <html lang="en-US">
@@ -13,6 +14,7 @@ const { title } = Astro.props;
 		>
 			<div class="w-full max-w-xl">
 				<slot />
+				<small>Linus Silberstein, {year}</small>
 			</div>
 		</div>
 	</body>

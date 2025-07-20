@@ -4,9 +4,11 @@ import Title from "../components/Title.astro";
 import Socials from "../components/Socials.astro";
 import List from "../components/List.astro";
 import { getCollection } from "astro:content";
+import Explainer from "../components/Explainer.astro";
 
 let socials = [
 	{title: 'Mail', link: 'mailto:mail@linussilberstein.de'},
+	{title: 'LinkedIn', link: 'https://www.linkedin.com/in/linussilberstein/'}, 
 	{title: 'Posts', link: '/posts'},
 	{title: 'Tags', link: '/tags'},
 ]
@@ -14,8 +16,9 @@ let socials = [
 const allBlogEntries = await getCollection('post');
 ---
 
-<BasicLayout title="Home" marquee>
+<BasicLayout title="Linus Silberstein" marquee>
 	<Title title="Linus Silberstein" />
+	<Explainer />
 	<List items={allBlogEntries} type="posts"/>
 	<Socials socials={socials}/>
 </BasicLayout>

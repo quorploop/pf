@@ -10,10 +10,8 @@ const { socials } = Astro.props;
             socials.map((item) => (
                 <li>
                     <Social
-                        iconsrc={item.iconsrc}
                         title={item.title}
                         link={item.link}
-                        notclickable={item.notclickable}
                     />
                 </li>
             ))
