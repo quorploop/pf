@@ -18,6 +18,7 @@
     "@tailwindcss/typography": "^0.5.16"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.46.0"
+    "@rollup/rollup-linux-x64-gnu": "4.46.0",
+    "@gogors/postcss-lightningcss-rs-linux-x64-gnu": "0.2.3"
   }
 }
