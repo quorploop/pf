@@ -17,8 +17,10 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16"
   },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.46.0",
-    "@gogors/postcss-lightningcss-rs-linux-x64-gnu": "0.2.3"
+    "optionalDependencies": {
+    "@tailwindcss/oxide-linux-arm64-musl": "^4.0.1",
+    "@tailwindcss/oxide-linux-x64-musl": "^4.0.1",
+    "lightningcss-linux-arm64-musl": "^1.29.1",
+    "lightningcss-linux-x64-musl": "^1.29.1"
   }
 }
