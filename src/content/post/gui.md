@@ -26,7 +26,7 @@ Dateisystem als eine hierarchische Baumstruktur ein Aktenschrank. Auch wenn der 
 Flop war, war die Desktopmetapher nicht mehr aufzuhalten.
 
 Der Personal Computer übernahm die Desktopmetapher. So wurde das Büro mit nach Hause genommen. Mit Microsofts Windows
-und darauffolgenden Versionen des Mac zementierten diesen Interaktionsstil. 
+und darauffolgenden Versionen des Mac zementierte sich dieser Interaktionsstil. 
 
 
 
